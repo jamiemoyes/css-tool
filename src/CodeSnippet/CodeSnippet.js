@@ -6,7 +6,9 @@ import "../css/prism.css";
 const CodeSnippet = ({ styles }) => {
   useEffect(() => {
     Prism.highlightAll();
-  }, [styles]);
+  }, []);
+
+  Prism.highlightAll();
 
   return (
     <SnippetContainer>
