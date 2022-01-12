@@ -3,6 +3,7 @@ const constants = {
   GRADIENT: "gradient-generator",
   NEUMORPHISM: "neumorphism-generator",
   SHADOW: "shadow-generator",
+  CLAYMORPHISM: "claymorphism-generator",
   GRADIENT_TYPES: {
     LINEAR: "linear-gradient",
     RADIAL: "radial-gradient",

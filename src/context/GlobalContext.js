@@ -2,8 +2,14 @@ import { createContext, useContext, useReducer, useState } from "react";
 
 import { constants } from "../contants";
 
-const { GLASSMORPHISM, NEUMORPHISM, GRADIENT, SHADOW, BASE_64_NOISE } =
-  constants;
+const {
+  GLASSMORPHISM,
+  NEUMORPHISM,
+  GRADIENT,
+  CLAYMORPHISM,
+  SHADOW,
+  BASE_64_NOISE,
+} = constants;
 
 const GlobalContext = createContext({});
 
@@ -57,6 +63,18 @@ const initModes = [
       boxShadow: "5px 5px 15px 5px #000000",
     },
   },
+  {
+    id: CLAYMORPHISM,
+    label: "Claymorphism",
+    color: "#B9D1F1",
+    intensity: "0.4",
+    noise: false,
+    styles: {
+      boxShadow:
+        "0 35px 68px 0 rgba(136,174,222,0.4), inset 0 -8px 16px 0 #B9D1F1",
+      backgroundColor: "white",
+    },
+  },
 ];
 
 const modeReducer = (state, action) => {
@@ -106,6 +124,17 @@ const modeReducer = (state, action) => {
       activeMode.color = color;
       activeMode.styles.boxShadow = `${x}px ${y}px ${blur}px ${spread}px ${color}`;
       return addAtIndex(activeMode, SHADOW);
+    }
+    case CLAYMORPHISM: {
+      const { color, intensity, noise } = action.payload;
+      activeMode.color = color;
+      activeMode.intensity = intensity;
+      activeMode.noise = noise;
+      activeMode.styles.boxShadow = `0 35px 68px 0 rgba(136,174,222,${intensity}), inset 0 -8px 16px 0 ${color}`;
+      activeMode.styles.backgroundImage = noise
+        ? `url(data:image/png;base64,${BASE_64_NOISE})`
+        : undefined;
+      return addAtIndex(activeMode, CLAYMORPHISM);
     }
     default:
       console.log("unimplemented");

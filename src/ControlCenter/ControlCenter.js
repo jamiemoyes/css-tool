@@ -12,10 +12,16 @@ import {
 
 import { constants } from "../contants";
 
-const { GRADIENT, GLASSMORPHISM, NEUMORPHISM, SHADOW, GRADIENT_TYPES } =
-  constants;
+const {
+  GRADIENT,
+  GLASSMORPHISM,
+  NEUMORPHISM,
+  SHADOW,
+  CLAYMORPHISM,
+  GRADIENT_TYPES,
+} = constants;
 
-const { LINEAR, RADIAL, CONIC } = GRADIENT_TYPES;
+// const { LINEAR, RADIAL, CONIC } = GRADIENT_TYPES;
 
 export const ControlCenter = () => {
   const { activeMode, changeMode, modes, changeModeStyles } =
@@ -264,6 +270,52 @@ export const ControlCenter = () => {
           },
         ];
       }
+      case CLAYMORPHISM:
+        return [
+          {
+            title: "Colour",
+            type: "color",
+            value: activeMode.color,
+            onChange: (event) => {
+              changeModeStyles({
+                id: CLAYMORPHISM,
+                payload: { ...activeMode, ...{ color: event.target.value } },
+              });
+            },
+          },
+          {
+            title: "Intensity",
+            type: "range",
+            min: 0,
+            max: 1,
+            step: 0.1,
+            value: activeMode.intensity,
+            onChange: (event) => {
+              changeModeStyles({
+                id: CLAYMORPHISM,
+                payload: {
+                  ...activeMode,
+                  ...{ intensity: event.target.value },
+                },
+              });
+            },
+          },
+          {
+            title: "Noise",
+            type: "checkbox",
+            value: activeMode.noise,
+            onChange: (event) => {
+              changeModeStyles({
+                id: CLAYMORPHISM,
+                payload: {
+                  ...activeMode,
+                  ...{ noise: event.target.checked },
+                },
+              });
+            },
+          },
+        ];
+
       default:
         return [];
     }
