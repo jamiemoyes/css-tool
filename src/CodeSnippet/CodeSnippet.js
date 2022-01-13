@@ -1,5 +1,9 @@
 import { useEffect } from "react";
-import { SnippetContainer } from "./CodeSnippet.styles";
+import {
+  SnippetContainer,
+  CopyIcon,
+  IconContainer,
+} from "./CodeSnippet.styles";
 import Prism from "prismjs";
 import "../css/prism.css";
 
@@ -8,10 +12,16 @@ const CodeSnippet = ({ styles }) => {
     Prism.highlightAll();
   }, []);
 
+  const copyToClipboard = () =>
+    navigator.clipboard.writeText(JSON.stringify(styles, null, "\t"));
+
   Prism.highlightAll();
 
   return (
     <SnippetContainer>
+      <IconContainer>
+        <CopyIcon onClick={copyToClipboard} />
+      </IconContainer>
       <pre>
         <code className="language-javascript">
           {JSON.stringify(styles, null, "\t")}

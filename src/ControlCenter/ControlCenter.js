@@ -12,16 +12,8 @@ import {
 
 import { constants } from "../contants";
 
-const {
-  GRADIENT,
-  GLASSMORPHISM,
-  NEUMORPHISM,
-  SHADOW,
-  CLAYMORPHISM,
-  GRADIENT_TYPES,
-} = constants;
-
-// const { LINEAR, RADIAL, CONIC } = GRADIENT_TYPES;
+const { GRADIENT, GLASSMORPHISM, NEUMORPHISM, SHADOW, CLAYMORPHISM } =
+  constants;
 
 export const ControlCenter = () => {
   const { activeMode, changeMode, modes, changeModeStyles } =

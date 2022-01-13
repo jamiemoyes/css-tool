@@ -44,10 +44,10 @@ const initModes = [
     id: NEUMORPHISM,
     label: "Neumorphism",
     blur: 51,
-    radius: 1,
+    radius: 20,
     styles: {
-      borderRadius: "1em",
-      background: "linear-gradient(145deg, #323232, #3b3b3b)",
+      borderRadius: "20px",
+      background: "linear-gradient(145deg, #2d2d2d, #363636)",
       boxShadow: "26px 26px 51px #303030, -26px -26px 51px #404040",
     },
   },
@@ -56,11 +56,12 @@ const initModes = [
     label: "Shadow",
     blur: 15,
     spread: 5,
-    color: "#000",
+    color: "#1a1a1a",
     x: 5,
     y: 5,
     styles: {
-      boxShadow: "5px 5px 15px 5px #000000",
+      background: "#ADA8B6",
+      boxShadow: "5px 5px 15px 5px #1a1a1a",
     },
   },
   {

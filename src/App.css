@@ -29,3 +29,15 @@ body {
 code {
   font-size: .6em;
 }
+
+input[type=color] {
+  padding: 0;
+}
+
+input[type="color" i] {
+  border: solid 1px black;
+  background: none;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+}

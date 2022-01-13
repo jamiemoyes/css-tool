@@ -21,11 +21,12 @@ const Circle = styled.div`
   width: 10em;
   height: 10em;
   border-radius: 10em;
+  opacity: 0;
 `;
 
 const Circle1 = styled(Circle)`
-  top: 1em;
-  left: 1em;
+  top: 30em;
+  left: -40em;
   background: conic-gradient(
     from 90deg at 40% -25%,
     #ffd700,
@@ -48,8 +49,8 @@ const Circle1 = styled(Circle)`
 `;
 
 const Circle2 = styled(Circle)`
-  right: 1em;
-  bottom: 2.5em;
+  right: -30em;
+  bottom: 20em;
   background: conic-gradient(at top right, lime, cyan);
 `;
 
