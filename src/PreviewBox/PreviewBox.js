@@ -43,13 +43,38 @@ const PreviewBox = () => {
           duration: 0.5,
         }
       );
+      return () => {
+        animate(
+          circle1.current,
+          {
+            x: 0,
+            y: 0,
+            opacity: 0,
+          },
+          {
+            duration: 0.5,
+          }
+        );
+
+        animate(
+          circle2.current,
+          {
+            x: 0,
+            y: 0,
+            opacity: 0,
+          },
+          {
+            duration: 0.5,
+          }
+        );
+      };
     }
   }, [activeMode]);
 
   return (
     <PreviewContainer>
-      {activeMode.id === GLASSMORPHISM && <Circle1 ref={circle1} />}
-      {activeMode.id === GLASSMORPHISM && <Circle2 ref={circle2} />}
+      {<Circle1 ref={circle1} />}
+      {<Circle2 ref={circle2} />}
       <Preview style={activeMode.styles}></Preview>
     </PreviewContainer>
   );
